@@ -10,6 +10,8 @@ import { TrackByPipe } from './pipe/track-by.pipe';
 import { MenuComponent } from './directivas/menu/component/menu.component';
 import { MaterialModule } from '../core/material.module';
 import { NavbarComponent } from './directivas/navbar/component/navbar.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { NavbarComponent } from './directivas/navbar/component/navbar.component'
     MenuComponent,
     NavbarComponent
   ],
-  imports: [ReactiveFormsModule, FormsModule, MaterialModule],
+  imports: [ReactiveFormsModule, FormsModule, MaterialModule, MatFormFieldModule, RouterModule],
   exports: [
     CommonModule,
     HttpClientModule,

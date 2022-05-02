@@ -1,0 +1,8 @@
+.contenedor {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+}

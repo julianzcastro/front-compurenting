@@ -19,6 +19,12 @@
       ],
       "@shared/*": [
         "src/app/shared/*"
+      ],
+      "@prestamo/*":[
+        "src/app/feature/prestamo/*"
+      ],
+      "@equipo/*":[
+        "src/app/feature/equipo/*"
       ]
     }
   },

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-crear-prestamo',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearPrestamoComponent implements OnInit {
 
-  constructor() { }
+  public formCrear : FormGroup;
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.formCrear= this.formBuilder.group(
+      {
+        identificacionUsuario: ['', Validators.required],
+        idEquipo: ['', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+        numeroDias: ['', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/), Validators.min(1)]]
+      }
+    )
+  }
+
+  send():any{
+    console.log(this.formCrear.value)
   }
 
 }

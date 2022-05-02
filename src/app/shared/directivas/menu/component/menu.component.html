@@ -3,26 +3,34 @@
 </button>
 
 <mat-menu #menu="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="orden" id="menuOrden">
-        <mat-icon>ballot</mat-icon>
-        <span>Orden</span>
+    <button mat-menu-item [matMenuTriggerFor]="prestamo" id="menuPrestamo">
+        <mat-icon>money</mat-icon>
+        <span>Préstamos</span>
     </button>
-    <button mat-menu-item [matMenuTriggerFor]="cliente" id="menuCliente">
-        <mat-icon>person_outline</mat-icon>
-        <span>Cliente</span>
-    </button>
-</mat-menu>
-
-<mat-menu #orden="matMenu">
-    <button mat-menu-item routerLink="/orden/crear" id="menuCrearOrden">
-        <mat-icon>label</mat-icon>
-        <span>Crear orden</span>
+    <button mat-menu-item [matMenuTriggerFor]="equipo" id="menuEquipo">
+        <mat-icon>laptop</mat-icon>
+        <span>Equipos</span>
     </button>
 </mat-menu>
 
-<mat-menu #cliente="matMenu">
-    <button routerLink="/cliente/listar-ordenes" mat-menu-item id="menuListarOrdenes">
+<mat-menu #prestamo="matMenu" routerLinkActive="active">
+    <button mat-menu-item routerLink="/prestamo/crear" routerLinkActive="active" id="menuCrearPrestamo">
+        <mat-icon>add</mat-icon>
+        <span>Registrar</span>
+    </button>
+    <button mat-menu-item routerLink="/prestamo/listar" routerLinkActive="active" id="menuCrearOrden">
+        <mat-icon>search</mat-icon>
+        <span>Consultar</span>
+    </button>
+</mat-menu>
+
+<mat-menu #equipo="matMenu">
+    <button routerLink="/equipo/crear" mat-menu-item id="menuListarOrdenes">
+        <mat-icon>add_to_queue</mat-icon>
+        <span>Registrar</span>
+    </button>
+    <button routerLink="/equipo/listar" mat-menu-item id="menuListarOrdenes">
         <mat-icon>content_paste</mat-icon>
-        <span>Listar ordenes</span>
+        <span>Listar equipos</span>
     </button>
 </mat-menu>

@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./prestamo.component.css']
 })
 export class PrestamoComponent implements OnInit {
-
+  
+  titulo:string='Prestamos';
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
 }

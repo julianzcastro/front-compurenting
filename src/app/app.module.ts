@@ -6,24 +6,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PrestamoComponent } from './feature/prestamo/components/prestamo/prestamo.component';
-import { CrearPrestamoComponent } from './feature/prestamo/components/crear-prestamo/crear-prestamo.component';
-import { ActualizarPrestamoComponent } from './feature/prestamo/components/actualizar-prestamo/actualizar-prestamo.component';
-import { FinalizarPrestamoComponent } from './feature/prestamo/components/finalizar-prestamo/finalizar-prestamo.component';
+import { PrestamoModule } from './feature/prestamo/prestamo.module';
+import { EquipoModule } from './feature/equipo/equipo.module';
+import { HomeModule } from './feature/home/home.module';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PrestamoComponent,
-    CrearPrestamoComponent,
-    ActualizarPrestamoComponent,
-    FinalizarPrestamoComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    PrestamoModule,
+    EquipoModule,
+    HomeModule
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],
