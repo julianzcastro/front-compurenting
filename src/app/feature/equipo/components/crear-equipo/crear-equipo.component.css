@@ -1,0 +1,8 @@
+.contenedor {
+    display: flex;
+    flex-flow: row wrap;
+    width: 90%;
+    max-width: 1000px;
+    align-items: stretch;
+    justify-content: center;
+}

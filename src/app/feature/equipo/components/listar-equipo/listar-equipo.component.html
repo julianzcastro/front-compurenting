@@ -1,1 +1,47 @@
-<p>listar-equipo works!</p>
+<mat-table [dataSource]="equipos" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="serial">
+        <mat-header-cell *matHeaderCellDef> Serial </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.serial}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="marca">
+        <mat-header-cell *matHeaderCellDef> Marca </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.marca}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="disponible">
+        <mat-header-cell *matHeaderCellDef> Disponible </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.disponible}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="tipoEquipo">
+        <mat-header-cell *matHeaderCellDef> Tipo Equipo </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.tipoEquipo}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+        <mat-cell id="acciones" *matCellDef="let element">
+            <button mat-button> Eliminar</button><button mat-button> Editar </button>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="eliminar">
+        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+        <mat-cell id="" *matCellDef="let row">
+            <button mat-button>Eliminar</button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

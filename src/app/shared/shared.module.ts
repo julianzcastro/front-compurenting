@@ -12,6 +12,7 @@ import { MaterialModule } from '../core/material.module';
 import { NavbarComponent } from './directivas/navbar/component/navbar.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterModule } from '@angular/router';
+import { MensajesService } from '../core/services/mensajes.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     FormsModule,
     TrackByPipe,
-    NavbarComponent
-  ]
+    NavbarComponent,
+    MaterialModule
+  ],
+  providers:[MensajesService]
 })
 export class SharedModule { }

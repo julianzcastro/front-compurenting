@@ -24,12 +24,12 @@
     </button>
 </mat-menu>
 
-<mat-menu #equipo="matMenu">
-    <button routerLink="/equipo/crear" mat-menu-item id="menuListarOrdenes">
+<mat-menu #equipo="matMenu" routerLinkActive="active">
+    <button routerLink="/equipo/crear" routerLinkActive="active" mat-menu-item id="menuListarOrdenes">
         <mat-icon>add_to_queue</mat-icon>
         <span>Registrar</span>
     </button>
-    <button routerLink="/equipo/listar" mat-menu-item id="menuListarOrdenes">
+    <button routerLink="/equipo/listar" routerLinkActive="active" mat-menu-item id="menuListarOrdenes">
         <mat-icon>content_paste</mat-icon>
         <span>Listar equipos</span>
     </button>

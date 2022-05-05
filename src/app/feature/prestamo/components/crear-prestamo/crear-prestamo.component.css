@@ -3,7 +3,13 @@
     flex-flow: row wrap;
     width: 90%;
     max-width: 1000px;
-    margin: auto;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: center;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
 }

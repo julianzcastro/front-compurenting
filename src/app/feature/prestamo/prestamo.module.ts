@@ -9,24 +9,24 @@ import { PrestamoComponent } from './components/prestamo/prestamo.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
-
+import { PrestamoService } from './shared/service/prestamo.service';
 
 @NgModule({
-declarations:[
-    CrearPrestamoComponent,
-    ActualizarPrestamoComponent,
-    FinalizarPrestamoComponent,
-    ListarPrestamoComponent,
-    PrestamoComponent
-],
-imports: [
-    SharedModule,
-    PrestamoRoutingModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule
-]
+    declarations:[
+        CrearPrestamoComponent,
+        ActualizarPrestamoComponent,
+        FinalizarPrestamoComponent,
+        ListarPrestamoComponent,
+        PrestamoComponent
+    ],
+    imports: [
+        SharedModule,
+        PrestamoRoutingModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule
+    ],
+    providers:[PrestamoService]
 })
 export class PrestamoModule{
 

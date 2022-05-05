@@ -1,20 +1,59 @@
 <div class="contenedor">
-    <mat-form-field appearance="fill" [formGroup]="formCrear" (submit)="send()">
-        <div>
-            <mat-label for="identificacionUsuario">Identificación Usuario</mat-label>
-            <input matInput id="identificacionUsuario" type="text" formControlName="identificacionUsuario">
+    <section class="section">
+        <form [formGroup]="formCrear" (ngSubmit)="crear()">
+            <div class="formulario">
 
-            <mat-label for="idEquipo">Id Equipo</mat-label>
-            <input matInput id="idEquipo" type="text" formControlName="idEquipo">
+                <div class="field">
+                    <label class="label">Identificación Usuario</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="text" formControlName="identificacionUsuario" />
+                        <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                      </span>
+                        <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                      </span>
+                    </div>
+                    <p class="help is-success">Documento de identificación</p>
+                </div>
 
-            <mat-label for="numeroDias">Numero de dias</mat-label>
-            <input matInput id="numeroDias" type="text" formControlName="numeroDias">
-        </div>
+                <div class="field">
+                    <label class="label">ID del equipo</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="number" formControlName="idEquipo" />
+                        <span class="icon is-small is-left">
+                        <i class="fas fa-computer"></i>
+                      </span>
+                        <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                      </span>
+                    </div>
+                    <p class="help is-success">Número de identificación del equipo a prestar</p>
+                </div>
 
-        <div>
-            <button [disabled]="formCrear.invalid">Send</button>
-        </div>
-    </mat-form-field>
+                <div class="field">
+                    <label class="label">Días</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="number" formControlName="numeroDias" />
+                        <span class="icon is-small is-left">
+                        <i class="fas fa-calendar"></i>
+                      </span>
+                        <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                      </span>
+                    </div>
+                    <p class="help is-success">Cantidad de días que prestára el equipo</p>
+                </div>
+
+                <div class="control">
+                    <button class="button is-primary" [disabled]="formCrear.invalid">Submit</button>
+                </div>
+            </div>
+
+        </form>
+
+    </section>
+
 </div>
 
 <div>

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Equipo } from '../../shared/model/equipo';
+import { EquipoService } from '../../shared/service/equipo.service';
+
+
 
 @Component({
   selector: 'app-listar-equipo',
@@ -7,9 +12,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarEquipoComponent implements OnInit {
 
-  constructor() { }
+  equipos: Observable<Equipo[]>;
+  dataSource = [];
+  displayedColumns: string[]=['id', 'serial', 'marca', 'disponible', 'tipoEquipo', 'acciones'];
+
+  constructor(
+    private equipoService: EquipoService
+  ) { }
 
   ngOnInit(): void {
+    this.obtenerEquipos();
+  }
+
+  obtenerEquipos(){
+    this.equipos=this.equipoService.obtener();
+    console.log(this.equipos[0]);
   }
 
 }

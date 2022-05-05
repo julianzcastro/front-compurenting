@@ -7,9 +7,9 @@ import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrestamoModule } from './feature/prestamo/prestamo.module';
-import { EquipoModule } from './feature/equipo/equipo.module';
 import { HomeModule } from './feature/home/home.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EquipoModule } from './feature/equipo/equipo.module';
 
 
 @NgModule({

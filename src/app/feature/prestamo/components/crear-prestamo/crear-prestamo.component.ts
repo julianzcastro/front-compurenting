@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PrestamoService } from '../../shared/service/prestamo.service';
+import { Prestamo } from '../../shared/model/prestamo';
+import { MensajesService } from '../../../../core/services/mensajes.service';
 
 @Component({
   selector: 'app-crear-prestamo',
@@ -9,7 +12,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CrearPrestamoComponent implements OnInit {
 
   public formCrear : FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  private prestamo: Prestamo;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private prestamoService: PrestamoService,
+    private mensajeService: MensajesService
+    ) { }
 
   ngOnInit(): void {
     this.formCrear= this.formBuilder.group(
@@ -21,8 +30,24 @@ export class CrearPrestamoComponent implements OnInit {
     )
   }
 
+  crear(){
+    this.obtenerPrestamoDelFormulario();
+    this.prestamoService.crear(this.prestamo).subscribe(
+      ()=>{
+        this.mensajeService.exitoso('Prestamo creado', '');
+      }
+    );
+  }
+
+  obtenerPrestamoDelFormulario(){
+    this.prestamo = this.formCrear.value;
+  }
+
   send():any{
-    console.log(this.formCrear.value)
+    this.prestamo=this.formCrear.value;
+    console.log(
+      this.prestamo
+    )
   }
 
 }

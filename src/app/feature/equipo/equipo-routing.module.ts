@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { EquipoComponent } from './components/equipo/equipo/equipo.component';
+import { EquipoComponent } from './components/equipo/equipo.component';
 import { CrearEquipoComponent } from './components/crear-equipo/crear-equipo.component';
 import { ListarEquipoComponent } from './components/listar-equipo/listar-equipo.component';
 import { EliminarEquipoComponent } from './components/eliminar-equipo/eliminar-equipo.component';
@@ -33,7 +33,7 @@ const routes: Routes = [
     }
   ];
 
-NgModule({
+@NgModule({
     imports:[RouterModule.forChild(routes)],
     exports:[RouterModule]
 
