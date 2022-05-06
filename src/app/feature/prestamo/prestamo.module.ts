@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { CrearPrestamoComponent } from './components/crear-prestamo/crear-prestamo.component';
-import { ActualizarPrestamoComponent } from './components/actualizar-prestamo/actualizar-prestamo.component';
 import { FinalizarPrestamoComponent } from './components/finalizar-prestamo/finalizar-prestamo.component';
 import { SharedModule } from '@shared/shared.module';
 import { ListarPrestamoComponent } from './components/listar-prestamo/listar-prestamo.component';
@@ -14,7 +13,6 @@ import { PrestamoService } from './shared/service/prestamo.service';
 @NgModule({
     declarations:[
         CrearPrestamoComponent,
-        ActualizarPrestamoComponent,
         FinalizarPrestamoComponent,
         ListarPrestamoComponent,
         PrestamoComponent

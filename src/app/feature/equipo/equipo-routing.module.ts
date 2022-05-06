@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { EquipoComponent } from './components/equipo/equipo.component';
 import { CrearEquipoComponent } from './components/crear-equipo/crear-equipo.component';
 import { ListarEquipoComponent } from './components/listar-equipo/listar-equipo.component';
-import { EliminarEquipoComponent } from './components/eliminar-equipo/eliminar-equipo.component';
 import { ActualizarEquipoComponent } from './components/actualizar-equipo/actualizar-equipo.component';
 
 
@@ -20,10 +19,6 @@ const routes: Routes = [
         {
             path: 'actualizar',
             component: ActualizarEquipoComponent
-        },
-        {
-          path: 'eliminar',
-          component: EliminarEquipoComponent
         },
         {
             path: 'listar',

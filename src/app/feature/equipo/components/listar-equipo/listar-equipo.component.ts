@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Equipo } from '../../shared/model/equipo';
 import { EquipoService } from '../../shared/service/equipo.service';
-
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ActualizarEquipoComponent } from '../actualizar-equipo/actualizar-equipo.component';
 
 
 @Component({
@@ -12,12 +13,15 @@ import { EquipoService } from '../../shared/service/equipo.service';
 })
 export class ListarEquipoComponent implements OnInit {
 
+  @Input() equipo:Equipo;
+
   equipos: Observable<Equipo[]>;
-  dataSource = [];
   displayedColumns: string[]=['id', 'serial', 'marca', 'disponible', 'tipoEquipo', 'acciones'];
 
   constructor(
-    private equipoService: EquipoService
+    private equipoService: EquipoService,
+    private dialogo: MatDialog
+
   ) { }
 
   ngOnInit(): void {
@@ -26,7 +30,22 @@ export class ListarEquipoComponent implements OnInit {
 
   obtenerEquipos(){
     this.equipos=this.equipoService.obtener();
-    console.log(this.equipos[0]);
   }
 
+  eliminarEquipo(equipo:Equipo){
+    this.equipoService.eliminar(equipo).subscribe(
+      ()=>{
+        this.obtenerEquipos();
+      }
+    )
+  }
+
+  onEdit(equipo: Equipo){
+    this.equipoService.form.setValue(equipo);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus=true;
+    dialogConfig.width="60%";
+    this.dialogo.open(ActualizarEquipoComponent, dialogConfig);
+  }
 }

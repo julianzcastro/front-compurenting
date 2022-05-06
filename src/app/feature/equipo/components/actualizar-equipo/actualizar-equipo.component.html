@@ -1,17 +1,31 @@
 <div class="contenedor">
     <section class="section">
-        <form [formGroup]="formActualizar" (ngSubmit)="crear()">
+        <form [formGroup]="equipoService.form" (ngSubmit)="actualizar()">
             <div class="formulario">
+
+                <div class="field">
+                    <label class="label">ID</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="text" formControlName="id" readonly="readonly" />
+                        <span class="icon is-small is-left">
+                      <i class="fas fa-barcode"></i>
+                    </span>
+                        <span class="icon is-small is-right">
+                      <i class="fas fa-check"></i>
+                  </span>
+                    </div>
+                    <p class="help is-success">Id del equipo</p>
+                </div>
 
                 <div class="field">
                     <label class="label">Serial</label>
                     <div class="control has-icons-left has-icons-right">
                         <input class="input" type="text" formControlName="serial" />
                         <span class="icon is-small is-left">
-                        <i class="fas fa-barcode"></i>
-                      </span>
+                          <i class="fas fa-barcode"></i>
+                        </span>
                         <span class="icon is-small is-right">
-                        <i class="fas fa-check"></i>
+                          <i class="fas fa-check"></i>
                       </span>
                     </div>
                     <p class="help is-success">Serial del equipo</p>
@@ -22,8 +36,8 @@
                     <div class="control has-icons-left has-icons-right">
                         <input class="input" type="text" formControlName="marca" />
                         <span class="icon is-small is-left">
-                      <i class="fas fa-laptop"></i>
-                    </span>
+                        <i class="fas fa-laptop"></i>
+                      </span>
                         <span class="icon is-small is-right">
                       <i class="fas fa-check"></i>
                     </span>
@@ -35,14 +49,14 @@
                     <label for="disponible">Disponibilidad</label>
                     <p class="control has-icons-left">
                         <span class="select">
-                    <select id="select" class="required" formControlName="disponible"  [ngClass]="{'is-invalid':controlesFormulario.disponible.touched && controlesFormulario.disponible.errors}">
-                      <option value="true" selected>Sí</option>
-                      <option value="false">No</option>
-                    </select>
-                  </span>
+                      <select id="select" class="required" formControlName="disponible"  [ngClass]="{'is-invalid':controlesFormulario.disponible.touched && controlesFormulario.disponible.errors}">
+                        <option value="true" selected>Sí</option>
+                        <option value="false">No</option>
+                      </select>
+                    </span>
                         <span class="icon is-small is-left">
-                    <i class="fas fa-laptop"></i>
-                  </span>
+                      <i class="fas fa-laptop"></i>
+                    </span>
                     </p>
                 </div>
 
@@ -67,7 +81,7 @@
                 </div>
 
                 <div class="control">
-                    <button class="button is-primary" [disabled]="formActualizar.invalid">Submit</button>
+                    <button class="button is-primary" [disabled]="equipoService.form.invalid">Submit</button>
                 </div>
             </div>
 
@@ -75,8 +89,4 @@
 
     </section>
 
-</div>
-
-<div>
-    Valido: {{formActualizar.valid | json}} {{formActualizar.value.disponible}} {{formActualizar.value.tipoEquipo}}
 </div>

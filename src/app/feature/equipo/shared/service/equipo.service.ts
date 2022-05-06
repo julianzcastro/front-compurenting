@@ -3,9 +3,19 @@ import { HttpService } from '../../../../core/services/http.service';
 import { Equipo } from '../model/equipo';
 import { Respuesta } from '../../../../shared/respuesta/respuesta';
 import { environment } from "src/environments/environment";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import * as _ from 'lodash';
 
 @Injectable()
 export class EquipoService{
+
+    form: FormGroup = new FormGroup({
+        id: new FormControl('', [Validators.min(1), Validators.required]),
+        serial: new FormControl('', Validators.required),
+        marca: new FormControl('', Validators.required),
+        disponible: new FormControl('true', Validators.required),
+        tipoEquipo: new FormControl('Básico', Validators.required)
+    });
 
     constructor(protected http: HttpService){
     }
@@ -19,11 +29,20 @@ export class EquipoService{
     }
 
     public actualizar(equipo: Equipo){
-        return this.http.doPut<Equipo, void>(`${environment.endpoint}/equipos/${equipo.id}`, equipo, this.http.optsName('actualizar productos'));
+        return this.http.doPut<Equipo, void>(`${environment.endpoint}/equipos/${equipo.id}`, equipo, this.http.optsName('actualizar equipos'));
     }
     
     public eliminar(equipo: Equipo){
         return this.http.doDelete<void>(`${environment.endpoint}/equipos/${equipo.id}`)
     }
 
+    initializeFormGroup() {
+        this.form.setValue({
+          id: '',
+          serial: '',
+          marca: '',
+          disponible: '',
+          tipoEquipo: ''
+        });
+    }
 }

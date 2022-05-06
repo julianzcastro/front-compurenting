@@ -25,7 +25,8 @@ import {MatTableModule} from '@angular/material/table';
         MatNativeDateModule,
         MatDialogModule,
         MatListModule,
-        MatTableModule
+        MatTableModule,
+        MatDialogModule
     ]
 })
 export class MaterialModule{

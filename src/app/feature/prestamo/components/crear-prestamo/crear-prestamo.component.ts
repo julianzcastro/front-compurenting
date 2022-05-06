@@ -4,6 +4,7 @@ import { PrestamoService } from '../../shared/service/prestamo.service';
 import { Prestamo } from '../../shared/model/prestamo';
 import { MensajesService } from '../../../../core/services/mensajes.service';
 
+const REGEX_NUMERO_DECIMAL = /^-?(0|[1-9]\d*)?$/;
 @Component({
   selector: 'app-crear-prestamo',
   templateUrl: './crear-prestamo.component.html',
@@ -12,7 +13,7 @@ import { MensajesService } from '../../../../core/services/mensajes.service';
 export class CrearPrestamoComponent implements OnInit {
 
   public formCrear : FormGroup;
-  private prestamo: Prestamo;
+  public prestamo: Prestamo;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,8 +25,8 @@ export class CrearPrestamoComponent implements OnInit {
     this.formCrear= this.formBuilder.group(
       {
         identificacionUsuario: ['', Validators.required],
-        idEquipo: ['', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-        numeroDias: ['', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/), Validators.min(1)]]
+        idEquipo: ['', [Validators.required, Validators.pattern(REGEX_NUMERO_DECIMAL), Validators.min(1)]],
+        numeroDias: ['', [Validators.required, Validators.pattern(REGEX_NUMERO_DECIMAL), Validators.min(1)]]
       }
     )
   }

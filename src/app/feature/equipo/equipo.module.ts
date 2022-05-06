@@ -2,7 +2,6 @@ import { NgModule } from "@angular/core";
 import { SharedModule } from "@shared/shared.module";
 import { ActualizarEquipoComponent } from "./components/actualizar-equipo/actualizar-equipo.component";
 import { CrearEquipoComponent } from "./components/crear-equipo/crear-equipo.component";
-import { EliminarEquipoComponent } from "./components/eliminar-equipo/eliminar-equipo.component";
 import { EquipoComponent } from "./components/equipo/equipo.component";
 import { ListarEquipoComponent } from "./components/listar-equipo/listar-equipo.component";
 import { ReactiveFormsModule } from "@angular/forms";
@@ -15,7 +14,6 @@ import { EquipoService } from './shared/service/equipo.service';
     declarations:[
         CrearEquipoComponent,
         ActualizarEquipoComponent,
-        EliminarEquipoComponent,
         ListarEquipoComponent,
         EquipoComponent
     ],
@@ -27,8 +25,8 @@ import { EquipoService } from './shared/service/equipo.service';
     ],
     providers:[
         EquipoService
-    ]
-
+    ],
+    entryComponents:[EquipoComponent]
 })
 export class EquipoModule{
 }

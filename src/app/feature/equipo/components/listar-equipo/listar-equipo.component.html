@@ -31,14 +31,7 @@
     <ng-container matColumnDef="acciones">
         <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
         <mat-cell id="acciones" *matCellDef="let element">
-            <button mat-button> Eliminar</button><button mat-button> Editar </button>
-        </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="eliminar">
-        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
-        <mat-cell id="" *matCellDef="let row">
-            <button mat-button>Eliminar</button>
+            <button mat-button (click)="eliminarEquipo(element)"> Eliminar</button><button mat-button (click)="onEdit(element)"> Editar </button>
         </mat-cell>
     </ng-container>
 

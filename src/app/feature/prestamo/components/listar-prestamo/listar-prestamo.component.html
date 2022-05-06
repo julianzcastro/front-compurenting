@@ -1,1 +1,50 @@
-<p>listar-prestamo works!</p>
+<mat-table [dataSource]="prestamos" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="identificacionUsuario">
+        <mat-header-cell *matHeaderCellDef> ID Usuario </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.identificacionUsuario}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="idEquipo">
+        <mat-header-cell *matHeaderCellDef> ID Equipo </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.idEquipo}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="fechaPrestamo">
+        <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.fechaPrestamo}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="numeroDias">
+        <mat-header-cell *matHeaderCellDef> Número de días </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.numeroDias}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="total">
+        <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.total}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="estado">
+        <mat-header-cell *matHeaderCellDef> Estado </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.estado}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+        <mat-cell id="acciones" *matCellDef="let element">
+            <button mat-button (click)="finalizarPrestamo(element)"> Finalizar</button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
