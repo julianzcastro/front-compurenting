@@ -12,6 +12,7 @@ export class ListarPrestamoComponent implements OnInit {
 
   prestamos: Observable<Prestamo[]>;
   displayedColumns: string[]=['id', 'identificacionUsuario', 'idEquipo', 'fechaPrestamo', 'numeroDias', 'total', 'estado', 'acciones'];
+  
 
   constructor(
     private prestamoService: PrestamoService,

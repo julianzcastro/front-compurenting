@@ -35,6 +35,7 @@ export class CrearEquipoComponent implements OnInit {
     this.equipoService.crear(this.equipo).subscribe(
       ()=>{
         this.mensajeService.exitoso('Equipo creado', '');
+        this.formCrear.reset();
       }
     )
   }
@@ -46,10 +47,4 @@ export class CrearEquipoComponent implements OnInit {
   obtenerEquipoDelFormulario(){
     this.equipo=this.formCrear.value;
   }
-
-  send(){
-    this.equipo=this.formCrear.value;
-    console.log(this.equipo);
-  }
-
 }

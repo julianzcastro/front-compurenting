@@ -9,6 +9,7 @@ import { HttpService } from './services/http.service';
 import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
+import { MensajesService } from './services/mensajes.service';
 
 @NgModule({
   declarations: [ToolbarComponent],
@@ -21,6 +22,7 @@ import { MaterialModule } from './material.module';
   providers: [
     HttpService,
     SecurityGuard,
+    MensajesService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: ErrorHandler, useClass: ManejadorError }

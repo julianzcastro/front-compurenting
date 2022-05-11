@@ -4,9 +4,6 @@ import { NgModule } from "@angular/core";
 import { PrestamoComponent } from './components/prestamo/prestamo.component';
 import { CrearPrestamoComponent } from './components/crear-prestamo/crear-prestamo.component';
 import { ListarPrestamoComponent } from './components/listar-prestamo/listar-prestamo.component';
-import { FinalizarPrestamoComponent } from './components/finalizar-prestamo/finalizar-prestamo.component';
-
-
 
 const routes: Routes = [
     {
@@ -20,10 +17,6 @@ const routes: Routes = [
         {
           path: 'listar',
           component: ListarPrestamoComponent
-        },
-        {
-          path: 'finalizar',
-          component: FinalizarPrestamoComponent
         }
       ]
     }

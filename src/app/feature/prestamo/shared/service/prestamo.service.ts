@@ -3,7 +3,6 @@ import { Prestamo } from '../model/prestamo';
 import { HttpService } from '../../../../core/services/http.service';
 import { environment } from 'src/environments/environment';
 import { Respuesta } from '../../../../shared/respuesta/respuesta';
-
 @Injectable()
 export class PrestamoService{ 
     
@@ -18,7 +17,7 @@ export class PrestamoService{
     }
 
     public finalizar(prestamo:Prestamo){
-        return this.http.doPut<Prestamo, void>(`${environment.endpoint}/prestamos/finalizar/${prestamo.id}`);
+        return this.http.doPut<Prestamo, boolean>(`${environment.endpoint}/prestamos/finalizar/${prestamo.id}`);
     }
 
     public actualizar(prestamo: Prestamo){

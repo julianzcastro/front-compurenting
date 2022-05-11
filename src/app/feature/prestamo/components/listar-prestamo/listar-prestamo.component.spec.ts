@@ -7,7 +7,7 @@ import { HttpService } from '../../../../core/services/http.service';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Observable} from 'rxjs';
+import { of } from 'rxjs';
 import { MensajesService } from '../../../../core/services/mensajes.service';
 
 describe('ListarPrestamoComponent', () => {
@@ -15,10 +15,7 @@ describe('ListarPrestamoComponent', () => {
   let fixture: ComponentFixture<ListarPrestamoComponent>;
   let prestamoService: PrestamoService;
   let mensajeService:MensajesService;
-  let prestamos: Observable<Prestamo[]>= new Observable;
-  let prestamo : Prestamo = {
-    id:2, identificacionUsuario:'100733', idEquipo:3, numeroDias:15
-  };
+  const prestamos: Prestamo[] = [new Prestamo(1, '100', 1, 5), new Prestamo(2, '1001', 2, 7)];
 
   beforeEach(waitForAsync(()=>{
     TestBed.configureTestingModule({
@@ -35,8 +32,8 @@ describe('ListarPrestamoComponent', () => {
 
     mensajeService= TestBed.inject(MensajesService);
     prestamoService = TestBed.inject(PrestamoService);
-    spyOn(prestamoService, 'consultar').and.returnValue(prestamos);
-    spyOn(prestamoService, 'finalizar');
+    spyOn(prestamoService, 'consultar').and.returnValue(of(prestamos));
+    spyOn(prestamoService, 'finalizar').and.returnValue(of(true));
     spyOn(mensajeService, 'exitoso');
     fixture.detectChanges();
   });
@@ -48,13 +45,18 @@ describe('ListarPrestamoComponent', () => {
   it('should consultar Prestamo', () => {
     component.obtenerPrestamos();
 
+    component.prestamos.subscribe(resultado =>{
+      expect(resultado.length).toBe(2);
+      expect(resultado).toBe(prestamos)
+    })
+
     expect(prestamoService.consultar).toHaveBeenCalled();
   });
 
   it('should finalizar Prestamo', () => {
+    const prestamo = prestamos[0]; 
     component.finalizarPrestamo(prestamo);
-
-    expect(prestamoService.finalizar).toHaveBeenCalled();
+    expect(prestamoService.finalizar).toHaveBeenCalledWith(prestamo);
     expect(mensajeService.exitoso).toHaveBeenCalled();
   });
 

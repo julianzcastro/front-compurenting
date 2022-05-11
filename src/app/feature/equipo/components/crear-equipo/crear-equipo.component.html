@@ -6,7 +6,7 @@
                 <div class="field">
                     <label class="label">Serial</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="text" formControlName="serial" />
+                        <input id="serial" class="input" type="text" formControlName="serial" />
                         <span class="icon is-small is-left">
                         <i class="fas fa-barcode"></i>
                       </span>
@@ -20,7 +20,7 @@
                 <div class="field">
                     <label class="label">Marca</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="text" formControlName="marca" />
+                        <input id="marca" class="input" type="text" formControlName="marca" />
                         <span class="icon is-small is-left">
                       <i class="fas fa-laptop"></i>
                     </span>
@@ -35,8 +35,8 @@
                     <label for="disponible">Disponibilidad</label>
                     <p class="control has-icons-left">
                         <span class="select">
-                    <select id="select" class="required" formControlName="disponible"  [ngClass]="{'is-invalid':controlesFormulario.disponible.touched && controlesFormulario.disponible.errors}">
-                      <option value="true" selected>Sí</option>
+                    <select id="selectDisponible" class="required" formControlName="disponible"  [ngClass]="{'is-invalid':controlesFormulario.disponible.touched && controlesFormulario.disponible.errors}">
+                      <option value="true" selected>Si</option>
                       <option value="false">No</option>
                     </select>
                   </span>
@@ -50,7 +50,7 @@
                     <label for="tipoEquipo">Tipo Equipo</label>
                     <p class="control has-icons-left">
                         <span class="select">
-                      <select id="select" class="form-control" formControlName="tipoEquipo" [ngClass]="{'is-invalid':controlesFormulario.tipoEquipo.touched && controlesFormulario.tipoEquipo.errors}">
+                      <select id="selectTipoEquipo" class="form-control" formControlName="tipoEquipo" [ngClass]="{'is-invalid':controlesFormulario.tipoEquipo.touched && controlesFormulario.tipoEquipo.errors}">
                         <option selected>Básico</option>
                         <option>Gamer</option>
                       </select>
@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="control">
-                    <button class="button is-primary" [disabled]="formCrear.invalid">Submit</button>
+                    <button id="crearEquipo" class="button is-primary" [disabled]="formCrear.invalid">Submit</button>
                 </div>
             </div>
 

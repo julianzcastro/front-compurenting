@@ -29,21 +29,10 @@ export class ManejadorError implements ErrorHandler {
   }
 
   private imprimirErrorConsola(mensaje): void {
-    const respuesta = {
-      fecha: new Date().toLocaleString(),
-      path: window.location.href,
-      mensaje,
-    };
+    const respuesta = this.obtenerRespuesta(mensaje);
     if (!environment.production) {
       window.console.error('Error inesperado:\n', respuesta);
     }
-  }
-
-  public obtenerErrorHttpCode(httpCode: number): string {
-    if (HTTP_ERRORES_CODIGO.hasOwnProperty(httpCode)) {
-      return HTTP_ERRORES_CODIGO.PETICION_FALLIDA;
-    }
-    return HTTP_ERRORES_CODIGO[httpCode];
   }
 
   private obtenerRespuesta(mensaje){
@@ -56,6 +45,13 @@ export class ManejadorError implements ErrorHandler {
 
   mostrarMensajeError(mensaje){
     const respuesta = this.obtenerRespuesta(mensaje);
-    this.mensajeService.error('Ha ocurrido un error',respuesta.mensaje.console.error.mensaje);
+    this.mensajeService.error('Ha ocurrido un error',respuesta.mensaje.error.mensaje);
+  }
+
+  public obtenerErrorHttpCode(httpCode: number): string {
+    if (HTTP_ERRORES_CODIGO.hasOwnProperty(httpCode)) {
+      return HTTP_ERRORES_CODIGO.PETICION_FALLIDA;
+    }
+    return HTTP_ERRORES_CODIGO[httpCode];
   }
 }
