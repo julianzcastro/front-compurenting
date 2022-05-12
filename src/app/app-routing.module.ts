@@ -9,7 +9,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
   { path: 'home', loadChildren: () => import('@home/home.module').then(mod => mod.HomeModule), },
   { path: 'prestamo', loadChildren: () => import('@prestamo/prestamo.module').then(mod => mod.PrestamoModule) },
-  { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) },
   { path: 'equipo', loadChildren: () => import('@equipo/equipo.module').then(mod => mod.EquipoModule) }
 ];
 

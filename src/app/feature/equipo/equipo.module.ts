@@ -9,6 +9,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { EquipoRoutingModule } from './equipo-routing.module';
 import { EquipoService } from './shared/service/equipo.service';
+import { MatDialogRef } from "@angular/material/dialog";
 
 @NgModule({
     declarations:[
@@ -24,7 +25,11 @@ import { EquipoService } from './shared/service/equipo.service';
         EquipoRoutingModule
     ],
     providers:[
-        EquipoService
+        EquipoService,
+        {
+            provide: MatDialogRef,
+            useValue: {}
+        }
     ],
     entryComponents:[EquipoComponent]
 })

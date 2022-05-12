@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MensajesService } from '@core/services/mensajes.service';
 import { Equipo } from '@equipo/shared/model/equipo';
@@ -11,7 +11,7 @@ import { EquipoService } from '@equipo/shared/service/equipo.service';
 })
 export class ActualizarEquipoComponent implements OnInit {
 
-  @Input() equipo: Equipo;
+  equipo: Equipo;
 
   constructor(
     public equipoService: EquipoService,
@@ -29,18 +29,22 @@ export class ActualizarEquipoComponent implements OnInit {
   }
 
   actualizar(){
-    this.equipoService.actualizar(this.equipoService.form.value).subscribe(
+    this.obtenerEquipoDelFormulario();
+    console.log(this.equipo.id);
+    this.equipoService.actualizar(this.equipo).subscribe(
       ()=>{
-        this.mensajeService.exitoso('Préstamo ha sido actualizado', '');
-        this.equipoService.form.reset();
+        this.mensajeService.exitoso('Equipo ha sido actualizado', '');
         this.equipoService.initializeFormGroup();
         this.alCerrar();
       }
     )
   }
-
+  
+  obtenerEquipoDelFormulario(){
+    this.equipo=this.equipoService.form.value;
+  }
+  
   get controlesFormulario(){
     return this.equipoService.form.controls;
   }
-
 }

@@ -4,7 +4,6 @@ import { Equipo } from '../model/equipo';
 import { Respuesta } from '../../../../shared/respuesta/respuesta';
 import { environment } from "src/environments/environment";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import * as _ from 'lodash';
 
 @Injectable()
 export class EquipoService{
@@ -29,11 +28,11 @@ export class EquipoService{
     }
 
     public actualizar(equipo: Equipo){
-        return this.http.doPut<Equipo, void>(`${environment.endpoint}/equipos/${equipo.id}`, equipo, this.http.optsName('actualizar equipos'));
+        return this.http.doPut<Equipo, boolean>(`${environment.endpoint}/equipos/${equipo.id}`, equipo, this.http.optsName('actualizar equipos'));
     }
     
     public eliminar(equipo: Equipo){
-        return this.http.doDelete<void>(`${environment.endpoint}/equipos/${equipo.id}`)
+        return this.http.doDelete<boolean>(`${environment.endpoint}/equipos/${equipo.id}`)
     }
 
     initializeFormGroup() {
@@ -41,8 +40,8 @@ export class EquipoService{
           id: '',
           serial: '',
           marca: '',
-          disponible: '',
-          tipoEquipo: ''
+          disponible: true,
+          tipoEquipo: 'Básico'
         });
     }
 }

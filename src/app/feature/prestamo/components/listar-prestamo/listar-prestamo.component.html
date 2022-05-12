@@ -41,7 +41,7 @@
     <ng-container matColumnDef="acciones">
         <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
         <mat-cell id="acciones" *matCellDef="let element">
-            <button mat-button (click)="finalizarPrestamo(element)"> Finalizar</button>
+            <button id="botonFinalizar" mat-button (click)="finalizarPrestamo(element)"> Finalizar</button>
         </mat-cell>
     </ng-container>
 

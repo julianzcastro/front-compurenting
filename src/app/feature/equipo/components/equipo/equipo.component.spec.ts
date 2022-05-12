@@ -19,7 +19,7 @@ describe('EquipoComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create EquipoComponent', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -19,7 +19,7 @@ describe('PrestamoComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create PrestamoComponent', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,4 +1,4 @@
-<mat-table [dataSource]="equipos" class="mat-elevation-z8">
+<mat-table id="listarEquipos" [dataSource]="equipos" class="mat-elevation-z8">
     <!-- Position Column -->
     <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
@@ -31,7 +31,7 @@
     <ng-container matColumnDef="acciones">
         <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
         <mat-cell id="acciones" *matCellDef="let element">
-            <button mat-button (click)="eliminarEquipo(element)"> Eliminar</button><button mat-button (click)="onEdit(element)"> Editar </button>
+            <button id="botonEliminar" mat-button (click)="eliminarEquipo(element)"> Eliminar</button><button id="botonEditar" mat-button (click)="onEdit(element)"> Editar </button>
         </mat-cell>
     </ng-container>
 

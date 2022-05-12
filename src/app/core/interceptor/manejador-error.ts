@@ -45,6 +45,7 @@ export class ManejadorError implements ErrorHandler {
 
   mostrarMensajeError(mensaje){
     const respuesta = this.obtenerRespuesta(mensaje);
+    console.log(respuesta.mensaje.error.mensaje);
     this.mensajeService.error('Ha ocurrido un error',respuesta.mensaje.error.mensaje);
   }
 

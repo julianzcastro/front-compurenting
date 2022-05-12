@@ -1,11 +1,12 @@
 import { by, element } from "protractor";
 
 export class ActualizarEquipoPage{
-    private inputSerial = element(by.id('serial'));
-    private inputMarca = element(by.id('marca'));
+    private inputSerial = element(by.id('serialActualizar'));
+    private inputMarca = element(by.id('marcaActualizar'));
     private selectDisponibleSi = element(by.cssContainingText("option","Si"));
     private selectDisponibleNo = element(by.cssContainingText("option", "No"));
     private mensaje = element(by.className('swal2-title'));
+    private botonActualizar = element(by.id('botonActualizar')); 
 
     async obtenerTextoInputSerial(){
         return this.inputSerial.getText();
@@ -35,5 +36,9 @@ export class ActualizarEquipoPage{
 
     async obtenerTextoMensaje(): Promise<string> {
         return await this.mensaje.getText();
+    }
+
+    async clickBotonActualizar(){
+        await this.botonActualizar.click();
     }
 }

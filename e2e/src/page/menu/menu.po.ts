@@ -7,7 +7,7 @@ export class MenuPage{
     menuRegistrarPrestamo = element(by.id('menuRegistrarPrestamo'));
     menuConsultarPrestamos = element(by.id('menuConsultarPrestamos'));
     menuRegistrarEquipo= element(by.id('menuRegistrarEquipo'));
-    menuListarEquipos = element(by.id('menuListarEquipos'))
+    menuListadoEquipos = element(by.id('menuListadoEquipos'));
 
     async clickMenu() {
         await this.menu.click();
@@ -34,6 +34,6 @@ export class MenuPage{
     } 
 
     async clickMenuListarEquipos(){
-        await this.menuListarEquipos.click();
+        await this.menuListadoEquipos.click();
     }
 }

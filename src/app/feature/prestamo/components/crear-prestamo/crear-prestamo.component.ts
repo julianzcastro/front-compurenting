@@ -36,19 +36,13 @@ export class CrearPrestamoComponent implements OnInit {
     this.prestamoService.crear(this.prestamo).subscribe(
       ()=>{
         this.mensajeService.exitoso('Prestamo creado', '');
+        this.formCrear.reset;
       }
     );
   }
 
   obtenerPrestamoDelFormulario(){
     this.prestamo = this.formCrear.value;
-  }
-
-  send():any{
-    this.prestamo=this.formCrear.value;
-    console.log(
-      this.prestamo
-    )
   }
 
 }
